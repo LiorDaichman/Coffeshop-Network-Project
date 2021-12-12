@@ -1,0 +1,193 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Work+Sans:400,600">
+<style>
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Full-width input fields */
+    input[type=text], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+    }
+
+    button1 {
+        background-color: #C89D7C;
+        color: white;
+        padding: 14px 8px;
+        margin: 15px 0;
+        border: none;
+        cursor: pointer;
+        width: 33%;
+        float: left
+    }
+
+    button2 {
+        background-color: #C89D7C;
+        color: white;
+        padding: 14px 8px;
+        margin: 15px 0;
+        border: none;
+        cursor: pointer;
+        width: 33%;
+        float: right
+    }
+
+    /*Tollbar*/
+    body {
+        margin: 0;
+        background: #222;
+        font-family: 'Work Sans', sans-seri;
+        font-weight: 800;
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    header {
+        background: #C89D7C;
+    }
+
+
+        header::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+    nav {
+        float: left;
+    }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        nav li {
+            display: inline-block;
+            margin-left: 70px;
+            padding-top: 23px;
+            position: relative;
+        }
+
+        nav a {
+            color: #444;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+            nav a:hover {
+                color: #000;
+            }
+
+            nav a::before {
+                content: '';
+                display: block;
+                height: 5px;
+                background-color: #444;
+                position: absolute;
+                top: 0;
+                width: 0%;
+                transition: all ease-in-out 250ms;
+            }
+
+            nav a:hover::before {
+                width: 100%;
+            }
+
+    /* Background */
+    body, html {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .bg-image {
+        background-image: url("https://images.pexels.com/photos/374885/pexels-photo-374885.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+        /* Add the blur effect */
+        filter: blur(8px);
+        -webkit-filter: blur(2px);
+        /* Full height */
+        height: 100%;
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .bg-text {
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+        color: white;
+        font-weight: bold;
+        border: 3px solid #f1f1f1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        width: 80%;
+        padding: 20px;
+        text-align: center;
+    }
+</style>
+<body>
+
+    <header>
+        <div class="container">
+
+            @*<img src="Images\Banerlogo.png" alt="logo" class="logo" />*@
+
+            <nav>
+                <ul>
+                    <li><a href="Home">Home</a></li>
+                    <li><a href="Login">Login</a></li>
+                    <li><a href="Menu">Menu</a></li>
+                    <li><a href="Contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="bg-image"></div>
+
+    <div class="bg-text">
+        <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+            <button1 type="submit">Login</button1>
+            <button2 type="submit">Register</button2>
+        </div>
+    </div>
+</body>
+</html>

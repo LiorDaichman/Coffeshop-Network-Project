@@ -23,5 +23,15 @@ namespace CoffeeShop.Controllers
         {
             return View("Contact");
         }
+
+        public ActionResult Login()
+        {
+            return View("Login");
+        }
+        
+        public ActionResult Menu()
+        {
+            return View("Menu");
+        }
     }
 }

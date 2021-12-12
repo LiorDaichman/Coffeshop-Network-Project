@@ -13,7 +13,6 @@ namespace CoffeeShop
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-
             routes.MapRoute(
                 name: "HomePage",
                 url: "",
@@ -25,11 +24,30 @@ namespace CoffeeShop
                 url: "Home",
                 defaults: new { controller = "HomePage", action = "ViewHomePage", id = UrlParameter.Optional }
             );
+
             routes.MapRoute(
                 name: "Contact",
                 url: "Contact",
                 defaults: new { controller = "HomePage", action = "Contact", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "login",
+                url: "login",
+                defaults: new { controller = "HomePage", action = "Login", id = UrlParameter.Optional }
+            );
+            
+            routes.MapRoute(
+                name: "Menu",
+                url: "Menu",
+                defaults: new { controller = "HomePage", action = "Menu", id = UrlParameter.Optional }
+            );
+
+
+
+
+
+
 
             routes.MapRoute(
                 name: "Default",
