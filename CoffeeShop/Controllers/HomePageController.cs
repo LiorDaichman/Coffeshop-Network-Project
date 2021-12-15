@@ -9,10 +9,6 @@ namespace CoffeeShop.Controllers
     public class HomePageController : Controller
     {
         // GET: HomePage
-        public ActionResult Index()
-        {
-            return View();
-        }
        
         public ActionResult ViewHomePage()
         {

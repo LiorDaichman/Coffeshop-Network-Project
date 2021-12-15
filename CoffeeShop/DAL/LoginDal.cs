@@ -15,7 +15,7 @@ namespace CoffeeShop.DAL
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Login>().ToTable("tbLogin");
         }
-
         public DbSet<Login> Login { get; set; }
+
     }
 }
