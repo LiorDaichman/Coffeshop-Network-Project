@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Employee List";
+}
+<style>
+    #employeeTable {
+        white-space:nowrap;
+    }
+</style>
+<h2>Employee List</h2>
+
+
+<table id="employeeTable" class="display">
+    <thead>
+        <tr>
+            <th class="permanent">First Name</th>
+            <th class="permanent">Last Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Start Date</th>
+            <th>Salary</th>
+            <th>Extn.</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Start Date</th>
+            <th>Salary</th>
+            <th>Extn.</th>
+            <th>Email</th>
+        </tr>
+    </tfoot>
+</table>
+<link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet" />
+@*column visibility*@
+<link href="https://cdn.datatables.net/buttons/1.3.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+@*fixed header*@
+@*<link href="https://cdn.datatables.net/fixedheader/3.1.2/css/fixedHeader.dataTables.min.css" rel="stylesheet" />*@
+@*fixed columns*@
+@*<link href="https://cdn.datatables.net/fixedcolumns/3.2.2/css/fixedColumns.dataTables.min.css" rel="stylesheet" />*@
+@section scripts{
+    <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    @*column visibility*@
+    <script src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+    <script src="//cdn.datatables.net/buttons/1.3.1/js/buttons.colVis.min.js"></script>
+    @*fixed header*@
+    @*<script src="https://cdn.datatables.net/fixedheader/3.1.2/js/dataTables.fixedHeader.min.js"></script>*@
+    @*fixed column*@
+    @*<script src="https://cdn.datatables.net/fixedcolumns/3.2.2/js/dataTables.fixedColumns.min.js"></script>*@
+<script>
+        $(document).ready(function () {
+            $("#employeeTable").DataTable({
+                "ajax": {
+                    "url": "/Employee/GetList",
+                    "type": "GET",
+                    "datatype": "json"
+                },
+                "columns": [
+                    { "data": "FirstName" },
+                    { "data": "LastName" },
+                    { "data": "Position" },
+                    { "data": "Office" },
+                    { "data": "Age" },
+                    { "data": "StartDate" },
+                    { "data": "Salary" },
+                    { "data": "Extn" },
+                    { "data": "EMail" },
+
+                ],
+                "dom": "Bfrtip",
+                //column visibility
+                "buttons": [
+                    {
+                        extend: 'colvis',
+                        columns: ':not(.permanent)'
+                    }
+                ]
+                //fixed columns
+                //paging: false,
+                //"scrollY": "900px",
+                //fixedHeader: true,
+                ////fixed columns
+                //fixedColumns: {
+                //    leftColumns: 1,
+                //    rightColumns:1
+                //},
+                //scrollX:true
+
+
+
+
+            });
+        });
+
+    </script>
+}
+

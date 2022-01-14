@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "Employee List";
+}
+
+<h2>Employee List</h2>
+<table id="searchTable" class="ui celled table">
+    <thead></thead>
+</table>
+
+<table id="employeeTable" class="ui celled table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Salary</th>
+        </tr>
+    </tfoot>
+</table>
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.semanticui.min.css" rel="stylesheet" />
+
+@section scripts{
+    <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.semanticui.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var empTable = $("#employeeTable").DataTable({
+                "ajax": {
+                    "url": "/Employee/GetList",
+                    "type": "POST",
+                    "datatype": "json"
+                },
+                "columns": [
+                    { "data": "Name", "name": "Name" },
+                    { "data": "Position", "name": "Position" },
+                    { "data": "Office", "name": "Office" },
+                    { "data": "Age", "name": "Age" },
+                    { "data": "Salary", "name": "Salary" },
+                ],
+
+                "serverSide": "true",
+                "order": [0, "asc"],
+                "processing": "true",
+                "language": {
+                    "processing": "processing... please wait"
+                },
+                "dom": '<"top"l>rt<"bottom"ip><"clear">',
+                "fnInitComplete": function (oSettings, json) {
+                    addSearchControl(json);
+                }
+
+
+
+            });
+
+            function addSearchControl(json) {
+                $("#searchTable thead").append($("#employeeTable thead tr:first").clone());
+                $("#searchTable thead tr:eq(0) th").each(function (index) {
+                    if (index != 2) {
+                        $(this).replaceWith('<th><input type="text" placeholder="Search ' + $(this).html() + '"></input></th>');
+                        var searchControl = $("#searchTable thead tr:eq(0) th:eq(" + index + ") input");
+                        searchControl.on('keyup', function () {
+                            empTable.column(index).search(searchControl.val()).draw();
+                        });
+                    }
+                    else {
+                        var officeDropDown = $('<select/>');
+                        officeDropDown.append($('<option/>').attr('value', '').text('Select Office'));
+                        var office = [];
+                        $(json.data).each(function (index, element) {
+                            if ($.inArray(element.Office, office) == -1) {
+                                office.push(element.Office);
+                                officeDropDown.append($('<option/>').attr('value', element.Office).text(element.Office));
+                            }
+                        });
+                        $(this).replaceWith('<th>' + $(officeDropDown).prop('outerHTML') + '</th>');
+                        var searchControl = $("#searchTable thead tr:eq(0) th:eq(" + index + ") select");
+                        searchControl.on('change', function () {
+                            empTable.column(index).search(searchControl.val()).draw();
+                        });
+                    }
+                });
+            }
+        });
+
+
+    </script>
+}
