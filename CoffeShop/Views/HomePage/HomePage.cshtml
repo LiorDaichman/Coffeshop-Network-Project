@@ -1,0 +1,125 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="~/CSS/HomePage.css" rel="stylesheet" />
+    <title>HomePage</title>
+</head>
+<body>
+    <div class="w3-top">
+        <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+            <a href="HomePage" class="w3-bar-item w3-button">CoffeShop</a>
+            <!-- Right-sided navbar links. Hide them on small screens -->
+            <div class="w3-right w3-hide-small">
+                <a href="#about" class="w3-bar-item w3-button">About</a>
+                <a href="#menu" class="w3-bar-item w3-button">Menu</a>
+                <a href="#Login" class="w3-bar-item w3-button">Login</a>
+                <a href="#Registry" class="w3-bar-item w3-button">Registry</a>
+                <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+            </div>
+        </div>
+    </div>
+    <!-- Header -->
+    <header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+        <img src="~/Image/Eggs-Benedict-HomePage.jpg" alt="Eggs Benedict" style="width:50%;">
+        <div class="w3-display-bottomleft w3-padding-large w3-opacity">
+        </div>
+    </header>
+    <!-- Page content -->
+    <div class="w3-content" style="max-width:1100px">
+        <!-- About Section -->
+        <div class="w3-row w3-padding-64" id="about">
+            <div class="w3-col m6 w3-padding-large w3-hide-small">
+                <img src="~/Image/Coffe-Cup-HomePage.jpg" class="w3-round w3-image w3-opacity-min" alt="Coffe Cup" width="600" height="750">
+            </div>
+            <div class="w3-col m6 w3-padding-large">
+                <h1 class="w3-center">About Catering</h1><br>
+                <h5 class="w3-center">Tradition since 2021</h5>
+                <p class="w3-large">If you were looking for the best coffee in town you have come to the right place. We make our coffee from coffee beans which we grow with great love. Our food is made by the most successful chef in Israel. Are you ready for the most delicious experience?</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Menu Section -->
+        <div class="w3-row w3-padding-64" id="menu">
+            <div class="w3-col l6 w3-padding-large">
+                <h1 class="w3-center">Our Menu</h1><br>
+                <h4>Bread Basket</h4>
+                <p class="w3-text-grey">Assortment of fresh baked fruit breads and muffins 5.50</p><br>
+
+                <h4>Honey Almond Granola with Fruits</h4>
+                <p class="w3-text-grey">Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p><br>
+
+                <h4>Belgian Waffle</h4>
+                <p class="w3-text-grey">Vanilla flavored batter with malted flour 7.50</p><br>
+
+                <h4>Scrambled eggs</h4>
+                <p class="w3-text-grey">Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p><br>
+
+                <h4>Blueberry Pancakes</h4>
+                <p class="w3-text-grey">With syrup, butter and lots of berries 8.50</p><br>
+
+                <h4> For the a full Menu click here: <a href="#" class="button">Menu</a> </h4> 
+            </div>
+            <div class="w3-col l6 w3-padding-large">
+                <img src="~/Image/Shaksuka-HomePage.jpg" class="w3-round w3-image w3-opacity-min" alt="Shaksuka" style="width:100%">
+            </div>
+        </div>
+        
+        <hr>
+        
+        <div class="w3-content" style="max-width:1100px">
+            <div class="w3-row w3-padding-64" id="Login">
+                <div class="w3-col m6 w3-padding-large w3-hide-small">
+                    <img src="~/Image/Login-HomePage.jpg" class="w3-round w3-image w3-opacity-min" alt="Coffe Cup" width="600" height="750">
+                </div>
+                <div class="w3-col m6 w3-padding-large">
+                    <h1 class="w3-center">Sign in</h1><br>
+                    <h4>Welcome back!</h4>
+                    <h4>For sign in please click on the Login</h4>
+                    <a href="#" class="button">Login</a>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="w3-row w3-padding-64" id="Registry">
+                <div class="w3-col l6 w3-padding-large">
+                    <h1 class="w3-center">Registry</h1><br>
+                    <h4>First time here? Welcome!</h4>
+                    <h4>For registry please click on the Registry</h4>
+                    <a href="Registry" class="button">Registry</a>
+                </div>
+                <div class="w3-col l6 w3-padding-large">
+                    <img src="~/Image/Registry-HomePage.jpg" class="w3-round w3-image w3-opacity-min" alt="Shaksuka" style="width:100%">
+                </div>
+            </div>
+            
+            <hr>
+
+            <!-- Contact Section -->
+            <div class="w3-container w3-padding-64" id="contact">
+                <h1>Contact</h1><br>
+                <p class="w3-text-blue-grey w3-large"><b>Big Center, Beer Shave</b></p>
+                <p>You can also contact us by phone +9728-6298500 or email CoffeShop@gmail.com, or you can send us a message here:</p>
+                <form action="/action_page.php" target="_blank">
+                    <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
+                    <p><input class="w3-input w3-padding-16" type="number" placeholder="How many people" required name="People"></p>
+                    <p><input class="w3-input w3-padding-16" type="datetime-local" placeholder="Date and time" required name="date" value="2020-11-16T20:00"></p>
+                    <p><input class="w3-input w3-padding-16" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
+                    <p><button class="w3-button w3-light-grey w3-section" type="submit">SEND MESSAGE</button></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

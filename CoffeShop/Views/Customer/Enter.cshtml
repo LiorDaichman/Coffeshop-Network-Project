@@ -1,0 +1,63 @@
+﻿@model CoffeShop.Models.CustomerClass
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>CoffeShop - Registry</title>
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <link href="~/CSS/Registry.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <div class="w3-top">
+            <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+                <a href="HomePage" class="w3-bar-item w3-button">CoffeShop</a>
+                <!-- Right-sided navbar links. Hide them on small screens -->
+                <div class="w3-right w3-hide-small">
+                    <a href="HomePage#about" class="w3-bar-item w3-button">About</a>
+                    <a href="HomePage#menu" class="w3-bar-item w3-button">Menu</a>
+                    <a href="HomePage#Login" class="w3-bar-item w3-button">Login</a>
+                    <a href="HomePage#Registry" class="w3-bar-item w3-button">Registry</a>
+                    <a href="HomePage#contact" class="w3-bar-item w3-button">Contact</a>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <form form action="Submit" method="post">
+            <div class="container">
+                <h1>Register</h1>
+                <p>Please fill in this form to create an account.</p>
+
+                <hr>
+                <label for="Username"><b>Username</b></label>
+                <input id="Text1" placeholder="Enter Username" name="Username" type="text" value="@Model.Username" /> @Html.ValidationMessageFor(x => x.Username) <br />
+
+                <label for="psw"><b>Password</b></label>
+                <input id="Text1" placeholder="Enter Password" name="Password" type="text" value="@Model.Password" /> @Html.ValidationMessageFor(x => x.Password) <br />
+                <hr>
+
+                <button id="Submit1" type="submit" class="registerbtn" value="Add customer">Register</button>
+            </div>
+
+            <div class="container signin">
+                <p>Already have an account? <a href="#">Sign in</a>.</p>
+            </div>
+        </form>
+        <br />
+        <br />
+        <br />
+    </div>
+</body>
+</html>
